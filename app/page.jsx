@@ -76,7 +76,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col justify-between text-center items-center md:m-0 m-2">
+    <div className="flex flex-col justify-between text-center items-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="absolute right-0 md:mt-6 md:mr-10 m-auto md:flex hidden">
           <Button variant="outline" size="icon">
@@ -97,30 +97,30 @@ export default function Home() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className="flex mt-12">
+      <div className="flex mt-10">
         <h1 className="font-bold text-4xl"> Mini Blog React + fetch API </h1>
       </div>
       <br />
       <DropdownMenu>
-          <DropdownMenuTrigger asChild className=" md:hidden">
-            <Button variant="outline" size="icon">
-              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => setTheme("light")}>
-              Light
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>
-              Dark
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("system")}>
-              System
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <DropdownMenuTrigger asChild className=" md:hidden">
+          <Button variant="outline" size="icon">
+            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem onClick={() => setTheme("light")}>
+            Light
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setTheme("dark")}>
+            Dark
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setTheme("system")}>
+            System
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
       <br />
       <div>
         <form onSubmit={controladorDelEnvio}>
@@ -129,11 +129,11 @@ export default function Home() {
             type="text"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
-            className="text-center"
+            className="text-center md:w-full min-w-[350px]"
             required
           />
           <br />
-          <div className="relative w-full min-w-[400px]">
+          <div className="relative w-full min-w-[350px]">
             <textarea
               className="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:resize-none disabled:border-0 disabled:bg-blue-gray-50"
               placeholder=" "
@@ -152,10 +152,10 @@ export default function Home() {
         </form>
       </div>
       <br />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
         {posts.map((post) => {
           return (
-            <div className="container mx-auto bg-gray-100 py-10 flex justify-center" key={post.id}>
+            <div className="md:container md:mx-auto bg-gray-100 py-10 flex justify-center md:mr-4 w-full mr-7" key={post.id}>
               <div className="bg-white w-80 shadow-lg cursor-pointer rounded transform hover:scale-105 duration-300 ease-in-out">
                 <div className="">
                   <img src="https://picsum.photos/400/300" alt="" className="rounded-t" />
