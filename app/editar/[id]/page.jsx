@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-export default function page({ params }) {
+export default function Page({ params }) {
   const [post, setPost] = useState({});
   const [cargar, setCargar] = useState(true);
   const [titulo, setTitulo] = useState("");
@@ -20,7 +20,7 @@ export default function page({ params }) {
       fetchData();
       setCargar(false);
     }
-  }, [cargar])
+  }, [params.id, cargar])
 
   async function editarPosts(titulo, mensaje) {
     let response = await fetch(`https://restful-api-project-az4p.onrender.com/api/v1/Articles/${params.id}`, {
